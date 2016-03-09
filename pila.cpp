@@ -6,17 +6,16 @@
 
 using namespace std;
 
-
-
-PILA::PILA()
+template <class TipoDatoPila>
+PILA<TipoDatoPila>::PILA()
 {
     size = 0;
     head = NULL;
 }
-
-void PILA::addPila(TDATO value)
+template <class TipoDatoPila>
+void PILA<TipoDatoPila>::addPila(TipoDatoPila value)
 {
-    NODO *node = new NODO();
+    NODO<TipoDatoPila> *node = new NODO<TipoDatoPila>();
     node->setValor(value); 
     size ++;
     
@@ -31,24 +30,25 @@ void PILA::addPila(TDATO value)
     }
 }
 
-void PILA::removePila()
+template <class TipoDatoPila>
+void PILA<TipoDatoPila>::removePila()
 {
 
     head = head->getNext();
     size--;
 }
-
-TDATO PILA::returnValue()
+template <class TipoDatoPila>
+TipoDatoPila PILA<TipoDatoPila>::returnValue()
 {
-    TDATO valor = head->getValor();
+    TipoDatoPila valor = head->getValor();
     removePila();
     return valor;
 }
 
-
-void PILA::showPila()
+template <class TipoDatoPila>
+void PILA<TipoDatoPila>::showPila()
 {
-    NODO *temp = head;
+    NODO<TipoDatoPila> *temp = head;
     while (temp != NULL)
     {
         cout<<temp->getValor()<<endl;
@@ -56,8 +56,8 @@ void PILA::showPila()
     }
 }
 
-
-bool PILA::checkNull()
+template <class TipoDatoPila>
+bool PILA<TipoDatoPila>::checkNull()
 {
     if(head==NULL)
         return true;
@@ -65,13 +65,13 @@ bool PILA::checkNull()
         return false;
 }
 
-
-int PILA::sizePila()
+template <class TipoDatoPila>
+int PILA<TipoDatoPila>::sizePila()
 {
     return size;
 }
-
-PILA::~PILA()
+template <class TipoDatoPila>
+PILA<TipoDatoPila>::~PILA()
 {
     
 }

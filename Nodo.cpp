@@ -7,38 +7,41 @@
 using namespace std;
 
 
-NODO::NODO()
+template <class TipoDatoNodo>
+NODO<TipoDatoNodo>::NODO()
 {
     next = NULL;
     valor = 0;
 }
 
 
-TDATO NODO::getValor()
+template <class TipoDatoNodo>
+TipoDatoNodo NODO<TipoDatoNodo>::getValor()
 {
 
     return valor;
 }
 
-NODO* NODO::getNext()
+template <class TipoDatoNodo>
+NODO<TipoDatoNodo>* NODO<TipoDatoNodo>::getNext()
 {
     return next;
 }
 
-
-void NODO::setValor(TDATO value)
+template <class TipoDatoNodo>
+TipoDatoNodo NODO<TipoDatoNodo>::setValor(TipoDatoNodo value)
 {
     valor = value;
 }
 
-
-void NODO::setNext(NODO *node)
+template <class TipoDatoNodo>
+TipoDatoNodo NODO<TipoDatoNodo>::setNext(NODO<TipoDatoNodo> *node)
 {
     next = node;
 }
 
-
-NODO::~NODO()
+template <class TipoDatoNodo>
+NODO<TipoDatoNodo>::~NODO()
 {
     
 }

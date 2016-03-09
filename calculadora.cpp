@@ -8,25 +8,27 @@
 
 using namespace std;
 
-
-
-CAL::CAL()
+template <class TipoDato>
+CAL<TipoDato>::CAL()
 {
 }
 
-TDATO CAL::calculadora(string expresion)
+
+
+template<class TipoDato>
+TipoDato CAL<TipoDato>::calculadora(TipoDato expresion)
 {
-    PILA stack;
+    PILA<TipoDato> stack;
     
     for(int i=0; i<expresion.length();i++)
     {   
   
-       int aux, a,b;
+       TipoDato aux, a,b;
           switch (expresion[i])
             {
                 case '+':
                 stack.addPila(stack.returnValue()+stack.returnValue());
-                 stack.showPila();
+                
                 break;
                 
                 case '-':
@@ -34,12 +36,12 @@ TDATO CAL::calculadora(string expresion)
                 a = stack.returnValue();
                 aux = a-b;
                 stack.addPila(aux);
-                stack.showPila();
+               
                 break;
                 
                 case '*':
                 stack.addPila(stack.returnValue()*stack.returnValue());
-                 stack.showPila();
+               
                 break;
                 
                 case '/':
@@ -66,7 +68,8 @@ TDATO CAL::calculadora(string expresion)
     cout<<"El valor es "<<stack.returnValue();
 }
 
-CAL::~CAL()
+template <class TipoDato>
+CAL<TipoDato>::~CAL()
 {
     
 }

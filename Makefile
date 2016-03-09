@@ -1,7 +1,7 @@
 CC=g++ 
 CXXFLAGS=-g
 
-OBJS = main.o  Nodo.o pila.o calculadora.o
+OBJS = main.o  Nodo.o pila.o 
 
 all: ${OBJS}
 	$(CC) $(CXXFLAGS) -o ejecutable ${OBJS}
